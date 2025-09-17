@@ -13,5 +13,5 @@ public class ExpenseDTO {
     private String description;
     private String category;
     private LocalDate date;
-    private Integer amount;
+    private Float amount;
 }
