@@ -30,6 +30,16 @@ public class ExpenseServiceimpl implements ExpenseService{
         return expenseRepository.save(expense); 
     }
 
+    /** Will Update values within an expense if it is currently present in the table */
+    public Expense updateExpense(Long id, ExpenseDTO expenseDTO){
+        Optional<Expense> optionalExpense = expenseRepository.findById(id);
+        if(optionalExpense.isPresent()){
+            return saveOrUpdateExpense(optionalExpense.get(), expenseDTO);
+        }
+        else {
+            throw new EntityNotFoundException("Expense is not present with id " + id);
+        }
+    }
     /**
      * Get all expenses sorted by date in descending order
      * @return List of expenses sorted by date in descending order
