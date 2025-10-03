@@ -1,5 +1,7 @@
 package com.CodeSAM.SAM.services.expense;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.CodeSAM.SAM.dto.ExpenseDTO;
@@ -9,5 +11,6 @@ import com.CodeSAM.SAM.entity.Expense;
 @Service
 public interface ExpenseService {
     Expense postExpense(ExpenseDTO expenseDTO);
-    
+    List<Expense> getAllExpenses();
+    Expense getExpenseById(Long id);
 }
